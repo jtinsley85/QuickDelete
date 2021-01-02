@@ -1,0 +1,18 @@
+{
+  "name": "quickdelete",
+  "version": "1.0.0",
+  "description": "AppleScript app to batch delete files given a directory and search term.",
+  "main": "main.scpt",
+  "scripts": {
+    "clean": "rm -rf dist/* dist/scripts && mkdir dist/app",
+    "compile": "osacompile -o dist/app/QuickDelete.app scripts/main.scpt",
+    "setIcon": "cp -f assets/QuickDelete.icns dist/app/QuickDelete.app/Contents/Resources/applet.icns",
+    "cpAssets": "cp -a assets dist/",
+    "build": "npm run clean && npm run compile && npm run setIcon && npm run cpAssets"
+  },
+  "keywords": [
+    "applescript"
+  ],
+  "author": "Josh Tinsley",
+  "license": "ISC"
+}
