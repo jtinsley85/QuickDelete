@@ -4,10 +4,14 @@
   "description": "AppleScript app to batch delete files given a directory and search term.",
   "main": "main.scpt",
   "scripts": {
-    "clean": "rm -rf dist/* dist/scripts && mkdir dist/app",
+    "clean": "rm -rf dist/* && mkdir dist/app",
+    "clean:dev": "rm -rf app/*",
     "compile": "osacompile -o dist/app/QuickDelete.app scripts/main.scpt",
-    "setIcon": "cp -f assets/QuickDelete.icns dist/app/QuickDelete.app/Contents/Resources/applet.icns",
+    "compile:dev": "osacompile -o app/QuickDelete.app scripts/main.scpt",
+    "setIcon": "cp -f assets/QuickDelete.icns app/QuickDelete.app/Contents/Resources/applet.icns",
+    "setIcon:dev": "cp -f assets/QuickDelete.icns app/QuickDelete.app/Contents/Resources/applet.icns",
     "cpAssets": "cp -a assets dist/",
+    "build:dev": "npm run clean:dev && npm run compile:dev && npm run setIcon:dev",
     "build": "npm run clean && npm run compile && npm run setIcon && npm run cpAssets"
   },
   "keywords": [
